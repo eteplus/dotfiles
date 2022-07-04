@@ -39,6 +39,7 @@ brew cleanup
 
 echo "Node: installing npm packages..."
 npm i typescript eslint -g
+npm i whistle whistle.inspect whistle.vase -g
 
 echo "Homebrew Cask: installing apps..."
 brew install --cask raycast
