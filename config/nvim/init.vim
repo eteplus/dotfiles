@@ -5,7 +5,7 @@ if executable('im-select')
 endif
 
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  silent execute '!curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 endif
 
@@ -83,7 +83,7 @@ set autochdir
 " 设置不搜索的文件和文件夹
 set wildignore+=*/node_modules/*
 
-set cursorline
+" set cursorline
 
 " Set cursor line color on visual mode
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40

@@ -24,7 +24,9 @@ plugins=(
 )
 
 source ${CONFIG_DIR}/aliases
-source ${CONFIG_DIR}/aliases-work
+if [ -f "${CONFIG_DIR}/aliases-work" ]; then
+  source ${CONFIG_DIR}/aliases-work
+fi
 
 source $ZSH/oh-my-zsh.sh
 
