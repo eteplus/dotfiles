@@ -11,6 +11,9 @@ export ZSH=$HOME/.oh-my-zsh
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH:
 export CONFIG_DIR=$HOME/Workspace/Github/dotfiles/config
 
+# zsh-completion
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
