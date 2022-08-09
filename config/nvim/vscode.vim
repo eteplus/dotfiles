@@ -17,7 +17,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/')
-  Plug 'asvetliakov/vim-easymotion', { 'dir': '~/.config/nvim/autoload/vscode-vim-easymotion' }
+  Plug 'asvetliakov/vim-easymotion', { 'as': 'vsc-easymotion' }
   Plug 'tpope/vim-surround'
 call plug#end()
 
@@ -43,6 +43,7 @@ nnoremap zz <Cmd>call VSCodeNotify('editor.toggleFold')<CR>
 nnoremap g[ <Cmd>call VSCodeNotify('editor.action.marker.prevInFiles')<CR>
 " 转到文件中下一个问题
 nnoremap g] <Cmd>call VSCodeNotify('editor.action.marker.nextInFiles')<CR>
+
 " 用H替换掉^
 noremap H ^
 " 用L替换掉$
