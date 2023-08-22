@@ -28,18 +28,21 @@ brew install --cask font-hack-nerd-font
 echo "Homebrew: installing binaries and other packages..."
 brew install git
 brew install corkscrew
-brew install node
 brew install tree
-brew install pnpm
 brew install neovim
 brew install tmux
 
 echo "Homebrew: cleaning up..."
 brew cleanup
 
+echo "Node: install pnpm"
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+
+echo "Node: install and use the specified version of Node.js"
+pnpm env use --global 18
+
 echo "Node: installing npm packages..."
-npm i typescript eslint -g
-npm i whistle whistle.inspect whistle.vase -g
+pnpm add typescript eslint whistle whistle.inspect whistle.vase -g
 
 echo "Homebrew Cask: installing apps..."
 brew install --cask raycast
