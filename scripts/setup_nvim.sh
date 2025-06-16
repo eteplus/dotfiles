@@ -1,19 +1,40 @@
 #!/bin/zsh
 
-NVIM_CONFIG_DIR=$HOME/.config/nvim
-CONFIG_DIR=$HOME/Workspace/Github/dotfiles/config/nvim
+set -e
+
+source "$(cd -- "$(dirname -- "$0")" && pwd)/base.sh"
+
+messages=(
+  "🧵 Starting Neovim configuration setup..."
+  "📁 Target directory: $NVIM_CONFIG_DIR"
+  "📁 Source directory: $CONFIG_DIR/lazyvim"
+)
+
+for message in "${messages[@]}"; do
+  INFO "$message"
+done
 
 if [ ! -d "$NVIM_CONFIG_DIR" ]; then
-  mkdir "$NVIM_CONFIG_DIR"
+  if mkdir -p "$NVIM_CONFIG_DIR"; then
+    INFO "✅ Successfully created directory: $NVIM_CONFIG_DIR"
+  else
+    WARN "⚠️ Failed to create directory: $NVIM_CONFIG_DIR"
+    exit 1
+  fi
+else
+  if rm -rf "$NVIM_CONFIG_DIR"; then
+    INFO "📁 Successfully removed existing directory: $NVIM_CONFIG_DIR"
+  else
+    WARN "⚠️ Failed to remove existing directory: $NVIM_CONFIG_DIR"
+    exit 1
+  fi
 fi
 
-if [[ ( -h "$NVIM_CONFIG_DIR/init.vim" || -f "$NVIM_CONFIG_DIR/init.vim" ) ]]; then
-  rm "$NVIM_CONFIG_DIR/init.vim"
+if ln -s "$CONFIG_DIR" "$NVIM_CONFIG_DIR"; then
+  INFO "🔗 Successfully created symlink: $NVIM_CONFIG_DIR -> $CONFIG_DIR"
+else
+  WARN "⚠️ Failed to create symlink from $CONFIG_DIR to $NVIM_CONFIG_DIR"
+  exit 1
 fi
 
-if [[ ( -h "$NVIM_CONFIG_DIR/vscode.vim" || -f "$NVIM_CONFIG_DIR/vscode.vim" ) ]]; then
-  rm "$NVIM_CONFIG_DIR/vscode.vim"
-fi
-
-ln -s $CONFIG_DIR/init.vim $NVIM_CONFIG_DIR/init.vim
-ln -s $CONFIG_DIR/vscode.vim $NVIM_CONFIG_DIR/vscode.vim
+INFO "✅ Neovim configuration setup completed successfully!"

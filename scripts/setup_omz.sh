@@ -1,27 +1,57 @@
 #!/bin/zsh
 
-echo "Checking for, or Installing Oh My Zsh"
-if [ -z `command -v omz`]; then
-  echo "Oh My Zsh is missing! Installing it..."
+set -e
+
+source "$(cd -- "$(dirname -- "$0")" && pwd)/base.sh"
+
+INFO "🤔 Checking for, or Installing Oh My Zsh"
+if [ ! -d "$ZSH_DIR" ]; then
+  INFO "🍞 Installing Oh My Zsh..."
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  source $HOME/.zshrc
-fi;
+else
+  INFO "✅ Oh My Zsh is already installed"
+fi
 
-echo "Oh my Zsh: installing plugins and themes"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+INFO "🧵 Installing plugins and themes"
 
-echo "Oh my Zsh: symlink config file"
-cd ~
-rm -rf .zshrc
-ln -s $HOME/Workspace/Github/dotfiles/config/zshrc .zshrc
-ln -s $HOME/Workspace/Github/dotfiles/config/.p10k.zsh .p10k.zsh
-source $HOME/.zshrc
+function INSTALL() {
+  local type=$1
+  local name=$2
+  local repo=$3
+  local path="$ZSH_CUSTOM/${type}s/$name"
 
-echo "Homebrew: installing autojump and fig"
-brew reinstall autojump
-brew reinstall fig
+  if [ -d "$path" ]; then
+    WARN "⚠️ Removing existing $path"
+    rm -rf "$path"
+  fi
 
-source $HOME/.zshrc
+  INFO "🍞 Installing $type $repo"
+  git clone --depth=1 "$repo" "$path" > /dev/null 2>&1
+
+  if [ $? -ne 0 ]; then
+    WARN "⚠️ Failed to install $type $name"
+  else
+    INFO "✅ Successfully installed $type $name"
+  fi
+}
+
+INSTALL "theme" "powerlevel10k" "https://github.com/romkatv/powerlevel10k.git"
+INSTALL "plugin" "zsh-syntax-highlighting" "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+INSTALL "plugin" "zsh-autosuggestions" "https://github.com/zsh-users/zsh-autosuggestions.git"
+INSTALL "plugin" "zsh-completions" "https://github.com/zsh-users/zsh-completions.git"
+
+WARN "⚠️ Removing existing config files: $HOME/.zshrc $HOME/.p10k.zsh"
+rm -rf $HOME/.zshrc $HOME/.p10k.zsh
+
+INFO "🔗 Linking $CONFIG_DIR/zshrc to $HOME/.zshrc"
+ln -s $CONFIG_DIR/zshrc $HOME/.zshrc
+
+INFO "🔗 Linking $CONFIG_DIR/p10k.zsh to $HOME/.p10k.zsh"
+ln -s $CONFIG_DIR/p10k.zsh $HOME/.p10k.zsh
+
+INFO "🍺 Installing autojump"
+brew reinstall autojump --quiet
+
+INFO "✅ Successfully configured Oh My Zsh and plugins"
+
+exec zsh
