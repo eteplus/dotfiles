@@ -56,10 +56,11 @@ brew install --cask google-chrome
 brew install --cask iterm2
 brew install --cask visual-studio-code
 brew install --cask windsurf
-brew install --cask input-source-pro
 brew install --cask notion
 brew install --cask bitwarden
 brew install --cask appcleaner
+brew install --cask input-source-pro
+brew install --cask jordanbaird-ice
 
 INFO "🍺 Cleaning up Homebrew..."
 brew cleanup

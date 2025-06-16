@@ -4,10 +4,12 @@ set -e
 
 source "$(cd -- "$(dirname -- "$0")" && pwd)/base.sh"
 
+LAZYVIM_CONFIG_DIR="$CONFIG_DIR/lazyvim"
+
 messages=(
   "🧵 Starting Neovim configuration setup..."
   "📁 Target directory: $NVIM_CONFIG_DIR"
-  "📁 Source directory: $CONFIG_DIR/lazyvim"
+  "📁 Source directory: $LAZYVIM_CONFIG_DIR"
 )
 
 for message in "${messages[@]}"; do
@@ -30,10 +32,10 @@ else
   fi
 fi
 
-if ln -s "$CONFIG_DIR" "$NVIM_CONFIG_DIR"; then
-  INFO "🔗 Successfully created symlink: $NVIM_CONFIG_DIR -> $CONFIG_DIR"
+if ln -s "$LAZYVIM_CONFIG_DIR" "$NVIM_CONFIG_DIR"; then
+  INFO "🔗 Successfully created symlink: $NVIM_CONFIG_DIR -> $LAZYVIM_CONFIG_DIR"
 else
-  WARN "⚠️ Failed to create symlink from $CONFIG_DIR to $NVIM_CONFIG_DIR"
+  WARN "⚠️ Failed to create symlink from $LAZYVIM_CONFIG_DIR to $NVIM_CONFIG_DIR"
   exit 1
 fi
 
