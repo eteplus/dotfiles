@@ -31,7 +31,6 @@ INFO "🍺 Installing unix tools..."
 brew install zsh
 
 INFO "🍺 Installing fonts..."
-brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
 brew install --cask font-maple-mono-nf-cn
 brew install --cask font-hack-nerd-font
