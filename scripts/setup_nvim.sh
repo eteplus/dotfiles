@@ -16,14 +16,24 @@ for message in "${messages[@]}"; do
   INFO "$message"
 done
 
-if [ ! -d "$NVIM_CONFIG_DIR" ]; then
-  if mkdir -p "$NVIM_CONFIG_DIR"; then
-    INFO "✅ Successfully created directory: $NVIM_CONFIG_DIR"
+if [ ! -d "$USER_CONFIG_DIR" ]; then
+  mkdir -p "$USER_CONFIG_DIR"
+  INFO "📁 Successfully created directory: $USER_CONFIG_DIR"
+fi
+
+if [ -d "$NVIM_CONFIG_DIR" ]; then
+  BACKUP_DIR="${NVIM_CONFIG_DIR}.backup"
+  if [ -d "$BACKUP_DIR" ]; then
+    rm -rf "$BACKUP_DIR"
+  fi
+
+  if mv "$NVIM_CONFIG_DIR" "$BACKUP_DIR"; then
+    INFO "✅ Successfully backed up directory: $NVIM_CONFIG_DIR -> $BACKUP_DIR"
   else
-    WARN "⚠️ Failed to create directory: $NVIM_CONFIG_DIR"
+    WARN "⚠️ Failed to backup directory: $NVIM_CONFIG_DIR"
     exit 1
   fi
-else
+
   if rm -rf "$NVIM_CONFIG_DIR"; then
     INFO "📁 Successfully removed existing directory: $NVIM_CONFIG_DIR"
   else

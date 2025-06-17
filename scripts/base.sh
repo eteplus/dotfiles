@@ -51,12 +51,14 @@ export CONFIG_DIR=$DIR/config
 export ZSH_DIR=$HOME/.oh-my-zsh
 export ZSH_CUSTOM=$ZSH_DIR/custom
 export ZSH_CONFIG_FILE=$HOME/.zshrc
-export NVIM_CONFIG_DIR=$HOME/.config/nvim
+export USER_CONFIG_DIR=$HOME/.config
+export NVIM_CONFIG_DIR=$USER_CONFIG_DIR/nvim
 
 messages=(
   "🏠 Home directory:          $HOME"
   "📁 Config directory:        $CONFIG_DIR"
   "📜 Scripts directory:       $SCRIPTS_DIR"
+  "🗃️  User config directory:   $USER_CONFIG_DIR"
   "🚀 Neovim config directory: $NVIM_CONFIG_DIR"
   "🗄️  ZSH directory:           $ZSH_DIR"
   "🔧 ZSH custom directory:    $ZSH_CUSTOM"
