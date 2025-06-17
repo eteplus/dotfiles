@@ -7,7 +7,8 @@ source "$(cd -- "$(dirname -- "$0")" && pwd)/base.sh"
 INFO "🤔 Checking for, or Installing Oh My Zsh"
 if [ ! -d "$ZSH_DIR" ]; then
   INFO "🍞 Installing Oh My Zsh..."
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  RUNZSH=no sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  eval "$(source $HOME/.zshrc)"
 else
   INFO "✅ Oh My Zsh is already installed"
 fi
@@ -50,8 +51,8 @@ INFO "🔗 Linking $CONFIG_DIR/p10k.zsh to $HOME/.p10k.zsh"
 ln -s $CONFIG_DIR/p10k.zsh $HOME/.p10k.zsh
 
 INFO "🍺 Installing autojump"
-brew reinstall autojump --quiet
+brew install autojump --quiet
 
 INFO "✅ Successfully configured Oh My Zsh and plugins"
 
-exec zsh
+exec zsh -l
