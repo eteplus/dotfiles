@@ -5,7 +5,13 @@ set -e
 source "$(cd -- "$(dirname -- "$0")" && pwd)/base.sh"
 
 INFO "🍞 Installing Xcode Command Line Tools..."
-xcode-select --install
+if ! xcode-select -p &>/dev/null; then
+  xcode-select --install || true
+else
+  INFO "✅ Xcode Command Line Tools already installed"
+fi
+
+exit 0
 
 INFO "🤔 Checking for, or Installing Homebrew..."
 if [ -z `command -v brew` ]; then

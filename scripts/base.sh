@@ -39,7 +39,7 @@ export MAX_LENGTH
 
 function SEPARATOR() {
   local length=$1
-  LOG $(printf '%*s' "$((length + 10))" | tr ' ' '━')
+  LOG $(printf '%*s' "$((length + 6))" | tr ' ' '━')
 }
 
 export SEPARATOR
@@ -58,9 +58,9 @@ messages=(
   "📁 Config directory:        $CONFIG_DIR"
   "📜 Scripts directory:       $SCRIPTS_DIR"
   "🚀 Neovim config directory: $NVIM_CONFIG_DIR"
-  "🗄️ ZSH directory:           $ZSH_DIR"
+  "🗄️  ZSH directory:           $ZSH_DIR"
   "🔧 ZSH custom directory:    $ZSH_CUSTOM"
-  "⚙️ ZSH config file:         $ZSH_CONFIG_FILE"
+  "⚙️  ZSH config file:         $ZSH_CONFIG_FILE"
 )
 
 max_length=$(MAX_LENGTH "${messages[@]}")
