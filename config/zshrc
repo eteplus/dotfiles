@@ -53,9 +53,6 @@ export OLLAMA_HOST=0.0.0.0
 
 unset ZSH_AUTOSUGGEST_USE_ASYNC
 
-# Windsurf
-export PATH="$HOME/.codeium/windsurf/bin:$PATH"
-
 # uv: python package manager
 eval "$(uv generate-shell-completion zsh)"
 
