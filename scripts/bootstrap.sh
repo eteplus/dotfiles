@@ -11,8 +11,6 @@ else
   INFO "✅ Xcode Command Line Tools already installed"
 fi
 
-exit 0
-
 INFO "🤔 Checking for, or Installing Homebrew..."
 if [ -z `command -v brew` ]; then
   INFO "🍞 Installing Homebrew..."
