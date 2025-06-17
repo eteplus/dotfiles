@@ -14,10 +14,10 @@ fi
 INFO "🤔 Checking for, or Installing Homebrew..."
 if [ -z `command -v brew` ]; then
   INFO "🍞 Installing Homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi;
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+  INFO "✅ Homebrew already installed"
+fi
 
 INFO "🍺 Updating Homebrew..."
 brew update
