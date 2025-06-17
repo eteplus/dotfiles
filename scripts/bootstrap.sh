@@ -43,7 +43,7 @@ brew install tree-sitter
 brew install neovim
 brew install tmux
 brew install fzf
-brew install bun
+brew install oven-sh/bun/bun
 brew install uv
 
 INFO "🍞 Installing pnpm"
