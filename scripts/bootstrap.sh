@@ -49,6 +49,7 @@ brew install uv
 
 INFO "🍞 Installing pnpm"
 curl -fsSL https://get.pnpm.io/install.sh | sh -
+exec zsh
 
 INFO "🍞 Installing and using the specified version of Node.js"
 pnpm env use --global 20
