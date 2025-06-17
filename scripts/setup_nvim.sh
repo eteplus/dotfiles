@@ -4,7 +4,7 @@ set -e
 
 source "$(cd -- "$(dirname -- "$0")" && pwd)/base.sh"
 
-LAZYVIM_CONFIG_DIR="$CONFIG_DIR/lazyvim"
+LAZYVIM_CONFIG_DIR="$CONFIG_DIR/nvim"
 
 messages=(
   "🧵 Starting Neovim configuration setup..."
@@ -38,6 +38,13 @@ if [ -d "$NVIM_CONFIG_DIR" ]; then
     INFO "📁 Successfully removed existing directory: $NVIM_CONFIG_DIR"
   else
     WARN "⚠️ Failed to remove existing directory: $NVIM_CONFIG_DIR"
+    exit 1
+  fi
+elif [ -L "$NVIM_CONFIG_DIR" ]; then
+  if rm -f "$NVIM_CONFIG_DIR"; then
+    INFO "📁 Successfully removed existing symlink: $NVIM_CONFIG_DIR"
+  else
+    WARN "⚠️ Failed to remove existing symlink: $NVIM_CONFIG_DIR"
     exit 1
   fi
 fi
