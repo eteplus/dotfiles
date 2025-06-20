@@ -10,9 +10,9 @@ export ZSH_CUSTOM=$ZSH/custom
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/opt/homebrew/bin:$HOME/bin"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-export CONFIG_DIR=$HOME/Workspace/Github/dotfiles/config
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+export CONFIG_DIR=$HOME/Workspace/Github/dotfiles/config
 
 # zsh-completion
 fpath+="$ZSH_CUSTOM/plugins/zsh-completions/src"
@@ -27,11 +27,6 @@ plugins=(
   zsh-autosuggestions
 )
 
-source "$CONFIG_DIR/aliases"
-
-[[ ! -f "$CONFIG_DIR/aliases-work" ]] || source "$CONFIG_DIR/aliases-work"
-[[ ! -f "$CONFIG_DIR/tokens" ]] || source "$CONFIG_DIR/tokens"
-
 source "$ZSH/oh-my-zsh.sh"
 
 # pnpm
@@ -41,6 +36,16 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Windsurf
+export WINDSURF="$HOME/.codeium/windsurf"
+if [[ -d "$WINDSURF/bin" ]]; then
+  case ":$PATH:" in
+    *":$WINDSURF/bin:"*) ;;
+    *) export PATH="$WINDSURF/bin:$PATH" ;;
+  esac
+fi
+# Windsurf end
 
 # ollama
 export OLLAMA_NUM_PARALLEL=2
@@ -58,3 +63,8 @@ eval "$(uv generate-shell-completion zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source "$CONFIG_DIR/aliases"
+
+[[ ! -f "$CONFIG_DIR/aliases-work" ]] || source "$CONFIG_DIR/aliases-work"
+[[ ! -f "$CONFIG_DIR/tokens" ]] || source "$CONFIG_DIR/tokens"
