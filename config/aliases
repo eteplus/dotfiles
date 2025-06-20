@@ -5,8 +5,11 @@ alias vi="nvim"
 alias zshrc="nvim ~/.zshrc"
 alias szshrc="source ~/.zshrc"
 alias lspath="echo $PATH | tr ':' '\n'"
-alias copydiff="git diff --staged ':(exclude)pnpm-lock.yaml' | pbcopy"
 alias awdl-off="sudo ifconfig awdl0 down"
 alias awdl-on="sudo ifconfig awdl0 up"
 alias rm-duplicates-open-with="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user"
 alias rm-unused-images="docker images -a | grep none | awk '{ print $3; }' | xargs docker rm"
+# Copy staged diff to clipboard
+alias copydiff="git diff --staged ':(exclude)pnpm-lock.yaml' | pbcopy"
+# Add all files except .windsurf files and diff.txt
+alias gaax="git add --all ':(exclude).windsurf/*' ':(exclude)diff.txt'"
