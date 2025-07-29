@@ -13,3 +13,4 @@ alias rm-unused-images="docker images -a | grep none | awk '{ print $3; }' | xar
 alias copydiff="git diff --staged ':(exclude)pnpm-lock.yaml' | pbcopy"
 # Add all files except .windsurf files and diff.txt
 alias gaax="git add --all ':(exclude).windsurf/*' ':(exclude)diff.txt'"
+alias code="windsurf"
