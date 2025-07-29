@@ -12,7 +12,7 @@ export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/opt/homebrew/bin:$HOM
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
-export CONFIG_DIR=$HOME/Workspace/Github/dotfiles/config
+export CONFIG_DIR=$HOME/Workspace/Github/Personal/dotfiles/config
 
 # zsh-completion
 fpath+="$ZSH_CUSTOM/plugins/zsh-completions/src"
