@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+# Get app id
+appid() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: appid <AppName>"
+    echo "Example: appid Safari"
+    return 1
+  fi
+
+  osascript -e "$(printf 'id of app "%s"' $1)"
+}

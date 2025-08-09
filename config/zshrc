@@ -66,5 +66,6 @@ eval "$(uv generate-shell-completion zsh)"
 
 source "$CONFIG_DIR/aliases"
 
+[[ ! -f "$CONFIG_DIR/functions" ]] || source "$CONFIG_DIR/functions"
 [[ ! -f "$CONFIG_DIR/aliases-work" ]] || source "$CONFIG_DIR/aliases-work"
 [[ ! -f "$CONFIG_DIR/tokens" ]] || source "$CONFIG_DIR/tokens"
