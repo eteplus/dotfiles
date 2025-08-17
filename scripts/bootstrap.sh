@@ -46,6 +46,7 @@ brew install tmux
 brew install fzf
 brew install oven-sh/bun/bun
 brew install uv
+brew install im-select
 
 INFO "🍞 Installing pnpm"
 curl -fsSL https://get.pnpm.io/install.sh | sh -
