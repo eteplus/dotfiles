@@ -11,6 +11,7 @@ export ZSH_THEME="powerlevel10k/powerlevel10k"
 export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:$HOME/bin"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 export CONFIG_DIR=$HOME/Workspace/Github/Personal/dotfiles/config
