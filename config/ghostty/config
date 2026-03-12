@@ -1,0 +1,19 @@
+# Font
+font-family = Maple Mono NF CN
+
+# Window
+window-colorspace = display-p3
+window-new-tab-position = end
+window-subtitle = working-directory
+background-opacity = 0.95
+background-blur = 5
+
+# macOS
+macos-icon = chalkboard
+macos-option-as-alt = true
+
+# Tabs
+tab-inherit-working-directory = false
+
+# Shell integration
+shell-integration-features = cursor,no-sudo,title,no-ssh-env,no-ssh-terminfo,path,ssh-env

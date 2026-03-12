@@ -53,7 +53,7 @@ curl -fsSL https://get.pnpm.io/install.sh | sh -
 eval "$(source $HOME/.zshrc)"
 
 INFO "🍞 Installing and using the specified version of Node.js"
-pnpm env use --global 20
+pnpm env use --global 24
 
 INFO "🍞 Installing npm packages..."
 pnpm add eslint whistle whistle.inspect whistle.vase -g
@@ -61,8 +61,7 @@ pnpm add eslint whistle whistle.inspect whistle.vase -g
 INFO "🍺 Installing apps..."
 brew install --cask raycast
 brew install --cask google-chrome
-brew install --cask iterm2
-brew install --cask visual-studio-code
+brew install --cask ghostty
 brew install --cask windsurf
 brew install --cask notion
 brew install --cask bitwarden

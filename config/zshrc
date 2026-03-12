@@ -8,6 +8,8 @@ fi
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_CUSTOM=$ZSH/custom
 export ZSH_THEME="powerlevel10k/powerlevel10k"
+export ZSH_CACHE_DIR=$HOME/.cache/zsh
+export ZSH_COMPDUMP=$ZSH_CACHE_DIR/.zcompdump
 export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:$HOME/bin"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
@@ -15,6 +17,16 @@ export PATH="$HOME/.local/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 export CONFIG_DIR=$HOME/Workspace/Github/Personal/dotfiles/config
+
+[[ -d $ZSH_CACHE_DIR ]] || mkdir -p $ZSH_CACHE_DIR
+
+autoload -Uz compinit
+
+if [[ -n $ZSH_COMPDUMP(#qN.mh+24) ]]; then
+  compinit -d $ZSH_COMPDUMP
+else
+  compinit -C -d $ZSH_COMPDUMP
+fi
 
 # zsh-completion
 fpath+="$ZSH_CUSTOM/plugins/zsh-completions/src"
@@ -71,4 +83,3 @@ source "$CONFIG_DIR/aliases"
 [[ ! -f "$CONFIG_DIR/functions" ]] || source "$CONFIG_DIR/functions"
 [[ ! -f "$CONFIG_DIR/aliases-work" ]] || source "$CONFIG_DIR/aliases-work"
 [[ ! -f "$CONFIG_DIR/tokens" ]] || source "$CONFIG_DIR/tokens"
-
