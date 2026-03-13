@@ -1,19 +1,29 @@
-# Font
+# Fonts
 font-family = Maple Mono NF CN
 
 # Window
 window-colorspace = display-p3
 window-new-tab-position = end
-window-subtitle = working-directory
-background-opacity = 0.95
-background-blur = 5
+theme = Catppuccin Mocha
+background-opacity = 0.92
+background-blur = 8
+quick-terminal-size = 100%,160px
+quick-terminal-animation-duration = 0
 
 # macOS
 macos-icon = chalkboard
 macos-option-as-alt = true
+macos-titlebar-style = tabs
+macos-non-native-fullscreen = true
+
+# Scrollbar
+scrollback-limit = 100000
 
 # Tabs
 tab-inherit-working-directory = false
 
+# Keybindings
+keybind = global:alt+space=toggle_quick_terminal
+
 # Shell integration
-shell-integration-features = cursor,no-sudo,title,no-ssh-env,no-ssh-terminfo,path,ssh-env
+shell-integration-features = cursor,sudo,title,ssh-terminfo,ssh-env
