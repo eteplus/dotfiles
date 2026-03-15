@@ -1,12 +1,13 @@
 # Fonts
 font-family = Maple Mono NF CN
+adjust-cell-height = 35%
 
 # Window
 window-colorspace = display-p3
 window-new-tab-position = end
 theme = Catppuccin Mocha
-background-opacity = 0.92
-background-blur = 8
+background-opacity = 0.90
+background-blur = 10
 quick-terminal-size = 100%,160px
 quick-terminal-animation-duration = 0
 
