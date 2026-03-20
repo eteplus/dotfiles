@@ -10,3 +10,40 @@ appid() {
 
   osascript -e "$(printf 'id of app "%s"' $1)"
 }
+
+# Kill port
+killport() {
+  local port=""
+  local force=0
+
+  for arg in "$@"; do
+    case $arg in
+      --force|-f)
+        force=1
+        ;;
+      *)
+        port=$arg
+        ;;
+    esac
+  done
+
+  if [ -z "$port" ]; then
+    echo "Usage: killport <port> [--force|-f]"
+    return 1
+  fi
+
+  local pids=$(lsof -ti:$port)
+
+  if [ -z "$pids" ]; then
+    echo "No process found on port $port"
+    return 0
+  fi
+
+  echo "Killing process on port $port: $pids"
+
+  if [ "$force" -eq 1 ]; then
+    kill -9 $pids
+  else
+    kill $pids
+  fi
+}

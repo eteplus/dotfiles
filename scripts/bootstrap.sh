@@ -50,6 +50,9 @@ brew install im-select
 
 INFO "🍞 Installing pnpm"
 curl -fsSL https://get.pnpm.io/install.sh | sh -
+
+INFO "🍞 Installing vite+"
+curl -fsSL https://vite.plus | bash
 eval "$(source $HOME/.zshrc)"
 
 INFO "🍞 Installing and using the specified version of Node.js"

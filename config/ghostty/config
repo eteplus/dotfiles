@@ -8,6 +8,7 @@ window-new-tab-position = end
 theme = Catppuccin Mocha
 background-opacity = 0.90
 background-blur = 10
+quick-terminal-autohide = true
 quick-terminal-size = 100%,160px
 quick-terminal-animation-duration = 0
 
@@ -18,7 +19,7 @@ macos-titlebar-style = tabs
 macos-non-native-fullscreen = true
 
 # Scrollbar
-scrollback-limit = 100000
+scrollback-limit = 200000
 
 # Tabs
 tab-inherit-working-directory = false
