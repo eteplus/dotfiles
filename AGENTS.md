@@ -36,7 +36,7 @@ Setup scripts create symlinks from this repo into the system:
 Sources additional files conditionally:
 - `config/aliases` — shared aliases (always loaded)
 - `config/functions` — shell functions (loaded if exists)
-- `config/aliases-work` — work-specific aliases (gitignored, loaded if exists)
+- `config/aliases-internal` — work-specific aliases (gitignored, loaded if exists)
 - `config/tokens` — API tokens/secrets (gitignored, loaded if exists)
 
 ### Neovim (`config/nvim/`)

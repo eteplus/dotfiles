@@ -19,7 +19,7 @@ macos-titlebar-style = tabs
 macos-non-native-fullscreen = true
 
 # Scrollbar
-scrollback-limit = 200000
+scrollback-limit = 300000
 
 # Tabs
 tab-inherit-working-directory = false
