@@ -29,3 +29,4 @@ keybind = global:alt+space=toggle_quick_terminal
 
 # Shell integration
 shell-integration-features = cursor,sudo,title,ssh-terminfo,ssh-env
+keybind = shift+enter=text:\x1b\r
