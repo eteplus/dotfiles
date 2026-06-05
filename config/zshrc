@@ -9,7 +9,7 @@ export ZSH=$HOME/.oh-my-zsh
 export ZSH_CUSTOM=$ZSH/custom
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 export ZSH_CACHE_DIR=$HOME/.cache/zsh
-export ZSH_COMPDUMP=$ZSH_CACHE_DIR/.zcompdump
+export ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump-${ZSH_VERSION}"
 export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:$HOME/bin"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
@@ -50,16 +50,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-# Windsurf
-export WINDSURF="$HOME/.codeium/windsurf"
-if [[ -d "$WINDSURF/bin" ]]; then
-  case ":$PATH:" in
-    *":$WINDSURF/bin:"*) ;;
-    *) export PATH="$WINDSURF/bin:$PATH" ;;
-  esac
-fi
-# Windsurf end
 
 # ollama
 export OLLAMA_NUM_PARALLEL=2

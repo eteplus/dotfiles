@@ -5,7 +5,7 @@ adjust-cell-height = 35%
 # Window
 window-colorspace = display-p3
 window-new-tab-position = end
-theme = Catppuccin Mocha
+theme = Catppuccin Macchiato
 background-opacity = 0.90
 background-blur = 10
 quick-terminal-autohide = true
