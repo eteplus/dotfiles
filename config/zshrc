@@ -60,13 +60,13 @@ unset ZSH_AUTOSUGGEST_USE_ASYNC
 eval "$(uv generate-shell-completion zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 source "$CONFIG_DIR/aliases"
 
-[[ ! -f "$CONFIG_DIR/aliases-internal" ]] || source "$CONFIG_DIR/aliases-internal"
-[[ ! -f "$CONFIG_DIR/functions" ]] || source "$CONFIG_DIR/functions"
-[[ ! -f "$CONFIG_DIR/tokens" ]] || source "$CONFIG_DIR/tokens"
+[[ -f "$CONFIG_DIR/aliases-internal" ]] && source "$CONFIG_DIR/aliases-internal"
+[[ -f "$CONFIG_DIR/functions" ]] && source "$CONFIG_DIR/functions"
+[[ -f "$CONFIG_DIR/tokens" ]] && source "$CONFIG_DIR/tokens"
 
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
@@ -77,4 +77,4 @@ esac
 # pnpm end
 
 # Vite+ bin (https://viteplus.dev)
-[[ ! -f "$HOME/.vite-plus/env" ]] || . "$HOME/.vite-plus/env"
+[[ -f "$HOME/.vite-plus/env" ]] && . "$HOME/.vite-plus/env"
