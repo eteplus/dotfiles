@@ -10,8 +10,10 @@ export ZSH_CUSTOM=$ZSH/custom
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 export ZSH_CACHE_DIR=$HOME/.cache/zsh
 export ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump-${ZSH_VERSION}"
+export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:$HOME/bin"
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
@@ -43,14 +45,6 @@ plugins=(
 
 source "$ZSH/oh-my-zsh.sh"
 
-# pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 # ollama
 export OLLAMA_NUM_PARALLEL=2
 export OLLAMA_MAX_LOADED_MODELS=2
@@ -73,3 +67,14 @@ source "$CONFIG_DIR/aliases"
 [[ ! -f "$CONFIG_DIR/aliases-internal" ]] || source "$CONFIG_DIR/aliases-internal"
 [[ ! -f "$CONFIG_DIR/functions" ]] || source "$CONFIG_DIR/functions"
 [[ ! -f "$CONFIG_DIR/tokens" ]] || source "$CONFIG_DIR/tokens"
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
+
+# Vite+ bin (https://viteplus.dev)
+[[ ! -f "$HOME/.vite-plus/env" ]] || . "$HOME/.vite-plus/env"
