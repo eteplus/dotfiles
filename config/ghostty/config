@@ -1,13 +1,17 @@
 # Fonts
+# font-family = Sarasa Term SC
 font-family = Maple Mono NF CN
 adjust-cell-height = 35%
 
 # Window
 window-colorspace = display-p3
 window-new-tab-position = end
-theme = Catppuccin Macchiato
+# theme = Catppuccin Macchiato
+theme = Catppuccin Mocha
 background-opacity = 0.90
 background-blur = 10
+window-padding-x = 10
+window-padding-y = 10
 quick-terminal-autohide = true
 quick-terminal-size = 100%,160px
 quick-terminal-animation-duration = 0
