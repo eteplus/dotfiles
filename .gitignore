@@ -1,3 +1,5 @@
 .DS_Store
 config/tokens
 config/aliases-internal
+config/state.yml
+config/github_pull_requests.json
