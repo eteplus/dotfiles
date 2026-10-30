@@ -5,9 +5,12 @@
 vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("lazyvim_user_markdown", { clear = true }),
-  pattern = { "gitcommit", "markdown" },
+  pattern = { "gitcommit", "markdown", "markdown.mdx" },
   callback = function()
     vim.opt_local.wrap = true
+    -- Snacks indent draws a bright scope bar at column 0 in markdown, which
+    -- reads as a stray artifact in the rendered view.
+    vim.b.snacks_indent = false
   end,
 })
 

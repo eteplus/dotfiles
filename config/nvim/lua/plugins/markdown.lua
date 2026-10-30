@@ -44,4 +44,35 @@ return {
       })
     end,
   },
+
+  -- LazyVim strips the heading icons, which leaves the raw `#` marks visible
+  -- and makes the rendered buffer read like source. A blank icon conceals the
+  -- marks without drawing anything, and `right` keeps the heading flush left.
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      heading = {
+        icons = { " " },
+        position = "right",
+        left_pad = 1,
+      },
+      -- The default filled circles are loud next to CJK text.
+      bullet = {
+        icons = { "•", "◦", "▪", "▫" },
+      },
+      code = {
+        -- Inline code follows the fenced-code background instead of Tokyo
+        -- Night's terminal-black, so a type list stops reading as a wall of
+        -- blue blocks.
+        highlight_inline = "RenderMarkdownCode",
+      },
+      -- Tokyo Night draws table borders in its red/orange accents, so every
+      -- table looks like a diagnostic. Keep the grid muted instead.
+      pipe_table = {
+        head = "NonText",
+        row = "NonText",
+        preset = "round",
+      },
+    },
+  },
 }
