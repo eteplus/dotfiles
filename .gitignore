@@ -1,4 +1,5 @@
 .DS_Store
+config/env
 config/tokens
 config/aliases-internal
 config/state.yml

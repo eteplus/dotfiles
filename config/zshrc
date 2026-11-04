@@ -64,6 +64,7 @@ eval "$(uv generate-shell-completion zsh)"
 
 source "$CONFIG_DIR/aliases"
 
+[[ -f "$CONFIG_DIR/env" ]] && source "$CONFIG_DIR/env"
 [[ -f "$CONFIG_DIR/aliases-internal" ]] && source "$CONFIG_DIR/aliases-internal"
 [[ -f "$CONFIG_DIR/functions" ]] && source "$CONFIG_DIR/functions"
 [[ -f "$CONFIG_DIR/tokens" ]] && source "$CONFIG_DIR/tokens"
