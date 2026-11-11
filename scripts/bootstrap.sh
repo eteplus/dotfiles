@@ -46,6 +46,7 @@ brew install tmux
 brew install fzf
 brew install oven-sh/bun/bun
 brew install uv
+brew install imagemagick
 brew install im-select
 
 INFO "🍞 Installing pnpm"
